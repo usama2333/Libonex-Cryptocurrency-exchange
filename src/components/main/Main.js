@@ -1,6 +1,6 @@
 import { IconButton, Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
-import React, { Fragment } from "react";
+import React, { Fragment , useEffect, useState} from "react";
 import backgroundMain from "../../assests/images/backgroundMain.png";
 import NotificationImg from "../../assests/images/NotificationImg.png";
 import eth from "../../assests/images/eth.png";
@@ -15,18 +15,28 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import fetchcoinList from "../../api/Api";
 import { logoText, negativeTableData, positiveTableData, tableHeadText, tableNum } from "./style";
 
+
+const TableHeaderData = [
+  "Rank",
+  "Name",
+  "Price",
+  "Total Supply",
+  "Remaning Supply",
+  "Start Date",
+  "Final Date",
+];
 const Main = () => {
-  const TableHeaderData = [
-    "#",
-    "Pair",
-    "Last Price",
-    "24h Change",
-    "24h High",
-    "24h Low",
-    "24h Volume",
-  ];
+  
+  const [data , setData] = useState([]);
+  const [error , setError] = useState();
+  useEffect(() => {
+    fetchcoinList(setData,setError);
+  }, []);
+
+  console.log('This is component data' , data)
 
   return (
     <Fragment>
@@ -36,7 +46,7 @@ const Main = () => {
           backgroundImage: `url(${backgroundMain})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: "730px",
+          height: {xlg : '695px' , lg : '565px' , md : '565px' , sm : '810px', xs : '833px'},
           width: "auto",
         }}
       >
@@ -196,8 +206,15 @@ const Main = () => {
             </Box>
           </Box>
         </Stack>
-        <Box sx={{ mt: "80px", ml: "30px", mr: "30px" }}>
-          <TableContainer component={Paper}>
+        <Box sx={{ mt: "80px", ml: "30px", mr: "30px",position : 'relative'  }}>
+          <TableContainer component={Paper}
+          sx={{
+            boxShadow: '0 0 20px 0 rgba(0, 0, 0, 0.1)',
+            border:'1px solid rgba(0, 0, 0, 0.2)',
+            position : 'absolute',
+            top : '0px'
+          }}
+          >
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -207,9 +224,13 @@ const Main = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
+
+               {data.map((data) => (
+
+              
                 <TableRow>
                   <TableCell sx={tableNum} component="th" scope="row">
-                    1
+                    {data.rank}
                   </TableCell>
                   <TableCell align="left" sx={{ pr: "100px" }}>
                     <Box
@@ -221,33 +242,35 @@ const Main = () => {
                     >
                       <Box
                         component="img"
-                        src={eth}
+                        src={data.imageURL}
                         sx={{
                           width: { xlg: "42px", xs: "32px" },
                           height: { xlg: "42px", xs: "32px" },
                           mr: "10px",
                         }}
                       ></Box>
-                      <Typography sx={logoText}>ETH/BTC</Typography>
+                      <Typography sx={logoText}>{data.name}</Typography>
                     </Box>
                   </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    0.02097
-                  </TableCell>
                   <TableCell sx={positiveTableData} align="left">
-                    +1.051
+                    {data.price}
                   </TableCell>
                   <TableCell sx={tableNum} align="left">
-                    0.02097
+                    {data.totalSupply}
                   </TableCell>
                   <TableCell sx={tableNum} align="left">
-                    0.0201077
+                    {data.remainingSupply}
                   </TableCell>
                   <TableCell sx={tableNum} align="left">
-                    229107.39
+                    {data.startDate}
+                  </TableCell>
+                  <TableCell sx={tableNum} align="left">
+                    {data.FinalDate}
                   </TableCell>
                 </TableRow>
+                ))}
 
+                 {/* 
                 <TableRow>
                   <TableCell sx={tableNum} component="th" scope="row">
                     2
@@ -369,7 +392,7 @@ const Main = () => {
                   <TableCell sx={tableNum} align="left">
                   229107.39
                   </TableCell>
-                </TableRow>
+                </TableRow> */}
               </TableBody>
             </Table>
           </TableContainer>
