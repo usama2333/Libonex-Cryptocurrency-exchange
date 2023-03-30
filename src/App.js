@@ -8,10 +8,14 @@ import Secured from "./components/secured/Secured";
 import Views from "./components/views/Views";
 import Apps from "./components/apps/Apps";
 
+import Support from "./components/support/Support";
+import Footer from "./components/footer/Footer";
+
 function App() {
   ;
   return (
     <Fragment>
+    
       <Navbar/>
       <Main/>
      <Secured/>
@@ -19,7 +23,9 @@ function App() {
      <Accounts/>
      <About/>
      <Apps/>
-      
+     <Support/>
+     <Footer/>
+
     </Fragment>
   );
 }
