@@ -36,7 +36,7 @@ const Navbar = () => {
       <Container maxWidth="custom" sx={{ position: "relative" }}>
         <AppBar
          position="absolute"
-          sx={{ backgroundColor: "transparent", boxShadow: "none",color : 'red' }}
+          sx={{ backgroundColor: "transparent", boxShadow: "none", }}
         >
           <Container maxWidth="custom"
            sx={{ 

@@ -165,8 +165,8 @@ const Main = () => {
             >
               <Box
                 sx={{
-                  width: "29px",
-                  height: "8px",
+                  width: {xs : '25px' , xlg : '29px'},
+                  height: {xs :'7px' , xlg :'8px'},
                   margin: "0 7px 0 0",
                   opacity: 0.6,
                   borderRadius: "50px",
@@ -175,8 +175,8 @@ const Main = () => {
               ></Box>
               <Box
                 sx={{
-                  width: "29px",
-                  height: "8px",
+                  width: {xs : '25px' , xlg : '29px'},
+                  height: {xs :'7px' , xlg :'8px'},
                   margin: "0 7px 0 0",
                   opacity: 0.6,
                   borderRadius: "50px",
@@ -185,8 +185,8 @@ const Main = () => {
               ></Box>
               <Box
                 sx={{
-                  width: "29px",
-                  height: "8px",
+                  width: {xs : '25px' , xlg : '29px'},
+                  height: {xs :'7px' , xlg :'8px'},
                   margin: "0 7px 0 0",
                   opacity: 0.6,
                   borderRadius: "50px",
@@ -195,8 +195,8 @@ const Main = () => {
               ></Box>
               <Box
                 sx={{
-                  width: "29px",
-                  height: "8px",
+                  width: {xs : '25px' , xlg : '29px'},
+                  height: {xs :'7px' , xlg :'8px'},
                   margin: "0 7px 0 0",
                   opacity: 0.6,
                   borderRadius: "50px",
