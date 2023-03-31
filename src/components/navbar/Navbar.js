@@ -9,16 +9,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import liboex from "../../assests/images/liboex.png";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import {getStartedBtn,homeBtn,libonexCenter,otherBtn,signinBtn, arrowBtn } from "./style";
-
-
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {getStartedBtn, homeBtn,libonexCenter,otherBtn,signinBtn,arrowBtn,getStartedBox,linksBox,
+  libonexBox,libonexStack,menubarDisplay, menubarBtn,navbarCon,notificationBox} from "./style";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,21 +36,12 @@ const Navbar = () => {
     <Fragment>
       <Container maxWidth="custom" sx={{ position: "relative" }}>
         <AppBar
-         position="absolute"
-          sx={{ backgroundColor: "transparent", boxShadow: "none", }}
+          position="absolute"
+          sx={{ backgroundColor: "transparent", boxShadow: "none" }}
         >
-          <Container maxWidth="custom"
-           sx={{ 
-             boxShadow: '0 0 20px 0 rgba(0, 0, 0, 0.1)',
-             backgroundColor: '#fff',
-             pt :{xlg : '15px' , lg : '5px'},
-             pb : {xlg : '15px' , lg : '5px'},
-             }}
-           >             
+          <Container maxWidth="custom" sx={navbarCon}>
             <Toolbar disableGutters>
-              <Box >
-                
-              </Box>
+              <Box></Box>
 
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
@@ -64,7 +52,7 @@ const Navbar = () => {
                   onClick={handleOpenNavMenu}
                   color="black"
                 >
-                  <MenuIcon sx={{width : '50px' , height : '50px'}} />
+                  <MenuIcon sx={{ width: "50px", height: "50px" }} />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -80,104 +68,52 @@ const Navbar = () => {
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  sx={{
-                    display: {
-                      xs: "inline-block",
-                      md: "none",
-                      boxSizing: "border-box",
-                    },
-                  }}
+                  sx={menubarDisplay}
                 >
-                  <Stack
-                    spacing={1}
-
-                    sx={{
-                      flexDirection: "column",
-                      alignItems: "center",
-                      display: { xs: "flex", md: "none" },
-                    }}
-                  >
-                <Typography >Home</Typography>
-                <Typography >Exchange</Typography>
-                {/* <Typography sx={otherBtn}>Notifications</Typography>
+                  <Stack spacing={1} sx={menubarBtn}>
+                    <Typography>Home</Typography>
+                    <Typography>Exchange</Typography>
+                    {/* <Typography sx={otherBtn}>Notifications</Typography>
                 <Typography sx={otherBtn}>Apply to list</Typography> */}
-                <Typography>Contact us</Typography>
-                <Button >Sign in</Button>
-
+                    <Typography>Contact us</Typography>
+                    <Button>Sign in</Button>
                   </Stack>
                 </Menu>
               </Box>
-            
-              <Box sx={{ 
-                flexGrow: { md: 0, sm: 1, xs: 1 } ,
-                // display : {xs : 'flex' , md : 'none'}
-                }}>
-                <Box
-                  component="img"
-                  src={liboex}
-                  sx={libonexCenter}
-                ></Box>
-              </Box>
 
-              <Stack
+              <Box
                 sx={{
-                  flexGrow: 1,
-                  justifyContent: "space-around",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  display: { xs: "none", md: "flex" },
+                  flexGrow: { md: 0, sm: 1, xs: 1 },
+                  // display : {xs : 'flex' , md : 'none'}
                 }}
               >
-                <Box
-                  component="img"
-                  src={liboex}
-                  sx={{
-                    // display: { xs: "none", md: "flex" },
-                    mt : '20px',
-                    height : {xlg : 'auto' , lg : '35px' , md : '35px'}
-                  }}
-                ></Box>
-                <Box
-                 sx={{
-                    width : '0px',
-                    height : {xlg : '52px' , lg : '40px', xs :'35px'},
-                    opacity: '0.5',
-                    border: 'solid 1px #000'
-                 }}
-                >
+                <Box component="img" src={liboex} sx={libonexCenter}></Box>
+              </Box>
 
-                </Box>
+              <Stack sx={libonexStack}>
+                <Box component="img" src={liboex} sx={libonexBox}></Box>
+                <Box sx={linksBox}></Box>
                 <Typography sx={homeBtn}>Home</Typography>
                 <Typography sx={otherBtn}>Exchange</Typography>
-                <Box sx={{display : 'flex' , flexDirection : 'row', justifyContent : 'center' , alignItems : 'center'}}>
-                <Typography sx={otherBtn}>Notifications</Typography>
-                <Box><KeyboardArrowDownIcon sx={arrowBtn}/></Box>
+                <Box
+                  sx={notificationBox}
+                >
+                  <Typography sx={otherBtn}>Notifications</Typography>
+                  <Box>
+                    <KeyboardArrowDownIcon sx={arrowBtn} />
+                  </Box>
                 </Box>
                 <Typography sx={otherBtn}>Apply to list</Typography>
                 <Typography sx={otherBtn}>Contact us</Typography>
-              
-                
               </Stack>
               <Button sx={signinBtn}>Sign in</Button>
-               
+
               <Box>
-                <Button
-                  sx={{
-                    mr: { xlg: "70px",lg : '20px' ,md: "0px" },
-                    boxShadow: "0 0 20px 0 rgba(0, 0, 0, 0.1)",
-                    borderRadius: '5px',
-                    backgroundColor : '#28a0b0',
-                    boxSizing : 'border-box',
-                    '&:hover': {
-                    backgroundColor: '#4ed7d0',
-                    },
-                  }}
-                >
+                <Button sx={getStartedBox}>
                   <Typography sx={getStartedBtn}>get started</Typography>
                 </Button>
               </Box>
             </Toolbar>
-         
           </Container>
         </AppBar>
       </Container>

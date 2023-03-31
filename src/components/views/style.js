@@ -1,3 +1,4 @@
+import viewsbackground from '../../assests/images/viewsbackground.png';
 
 export const viewsUpperText = {
     fontFamily: "Helvetica",
@@ -24,4 +25,15 @@ export const viewsLowerText = {
     color : '#fff',
     mb :{xs :'30px' ,sm :'40px', md :'0px'}
 
+}
+
+export const viewStackSx = {
+    pt : {xlg : '140px' , md : '80px', sm :'80px', xs :'60px'},
+    pb : {xlg : '140px' , md : '80px', sm :'80px', xs :'60px'},
+}
+
+export const viewCon = { 
+    backgroundImage: `url(${viewsbackground})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
 }

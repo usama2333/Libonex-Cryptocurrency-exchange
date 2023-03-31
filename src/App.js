@@ -7,7 +7,6 @@ import Navbar from "./components/navbar/Navbar";
 import Secured from "./components/secured/Secured";
 import Views from "./components/views/Views";
 import Apps from "./components/apps/Apps";
-
 import Support from "./components/support/Support";
 import Footer from "./components/footer/Footer";
 
@@ -16,8 +15,8 @@ function App() {
   return (
     <Fragment>
     
-      <Navbar/>
-      <Main/>
+    <Navbar/>
+     <Main/>
      <Secured/>
      <Views/>
      <Accounts/>

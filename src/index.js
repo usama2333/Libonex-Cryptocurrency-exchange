@@ -4,22 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider , createTheme } from '@mui/material';
-
 import { Provider } from 'react-redux';
 import store from './store';
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
 const theme = createTheme({
-  // palette : {
-  //   primary :  {
-  //     main : "#1A3447"
-  //   },
-   
-  // },
 
   breakpoints: {
     values: {
@@ -39,7 +29,9 @@ const theme = createTheme({
 root.render(
   <Provider store={store}>
   <ThemeProvider theme={theme}>
+
     <App />
+
   </ThemeProvider>
    </Provider>
 );

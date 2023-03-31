@@ -1,3 +1,26 @@
+import boxesbackground from "../../assests/images/boxesbackground.png";
+export const aboutContainer = {
+    backgroundImage: `url(${boxesbackground})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    height: {xlg : '525px',lg : '380px', md : '380px', sm : '1000px' },
+    width: {xlg : 'auto'}
+}
+
+export const textBox = {
+    width : {xs : '80%' , md :'38%'},
+    ml : {xlg : '140px' , lg : '100px', md :'50px', sm :'20px'}
+}
+
+export const boxImgSx = {
+    position : {md : 'absolute' , sm : 'none'},
+    left : {xlg : '-800px' , lg : '-610px', md : '-530px'},
+    top : {xlg : '-108px', lg : '-81px',md : '-81px'},
+    height : {xlg  : 'auto', lg : '511px',md : '511px',sm : '490px',xs :'250px'},
+    width : {xlg : 'auto', lg : '511px', md : '511px',sm :'490px',xs : '250px'},
+   mt :{sm : '80px' , md : '0px'},
+}
+
 export const aboutText = {
     
     fontFamily: "Helvetica",

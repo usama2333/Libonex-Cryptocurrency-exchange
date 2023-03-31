@@ -3,33 +3,18 @@ import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import boxesbackground from "../../assests/images/boxesbackground.png";
 import boxes from "../../assests/images/boxes.png";
-import { aboutPara, aboutText } from "./style";
+import {aboutContainer,aboutPara,aboutText,boxImgSx,textBox} from "./style";
 
 const About = () => {
   return (
     <Fragment>
-      <Container
-        maxWidth="custom"
-        sx={{
-          backgroundImage: `url(${boxesbackground})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          height: {xlg : '525px',lg : '380px', md : '380px', sm : '1000px' },
-          width: {xlg : 'auto'}
-        }}
-      >
+      <Container maxWidth="custom" sx={aboutContainer}>
         <Stack
-         direction={{xs : 'column' , md : 'row'}}
-         justifyContent={{xs :'center' , md : 'space-between'}}
-         alignItems ={{xs : 'center' , md:'normal'}}
-         
+          direction={{ xs: "column", md: "row" }}
+          justifyContent={{ xs: "center", md: "space-between" }}
+          alignItems={{ xs: "center", md: "normal" }}
         >
-          <Box
-           sx={{
-            width : {xs : '80%' , md :'38%'},
-            ml : {xlg : '140px' , lg : '100px', md :'50px', sm :'20px'}
-           }}
-          >
+          <Box sx={textBox}>
             <Typography sx={aboutText}>About us</Typography>
 
             <Typography sx={aboutPara}>
@@ -47,29 +32,12 @@ const About = () => {
           </Box>
 
           <Box
-             sx={{
-             position : 'relative'
-           }}
+            sx={{
+              position: "relative",
+            }}
           >
-            <Box
-             component='img'
-             src={boxes}
-             sx={{
-                position : {md : 'absolute' , sm : 'none'},
-                left : {xlg : '-800px' , lg : '-610px', md : '-530px'},
-                top : {xlg : '-108px', lg : '-81px',md : '-81px'},
-                height : {xlg  : 'auto', lg : '511px',md : '511px',sm : '490px',xs :'250px'},
-                width : {xlg : 'auto', lg : '511px', md : '511px',sm :'490px',xs : '250px'},
-            //    ml :{sm : '60px' , md : '0px'},
-               mt :{sm : '80px' , md : '0px'},
-             }}
-            >
-
-            </Box>
-
+            <Box component="img" src={boxes} sx={boxImgSx}></Box>
           </Box>
-
-
         </Stack>
       </Container>
     </Fragment>

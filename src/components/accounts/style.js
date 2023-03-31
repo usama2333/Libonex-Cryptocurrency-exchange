@@ -1,3 +1,21 @@
+export const textBox = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    mt : {sm : '30px', lg :'0px'}
+}
+
+export const stackSx = {
+    mt :{xlg : '140px' , md : '100px' , sm : '80px', xs :'60px'},
+    ml : {sm : '150px' ,xs : '0px', sm :'0px'},
+    mb : {xlg : '140px' , md : '100px'},
+}
+
+export const accountSx = {
+    mb : {xlg : '70px' , md :'45px' , sm :'30px', xs : '30px'} ,
+    width : {xlg : 'auto',  md :'80px', sm : 'auto' , xs : '120px'},
+    height : {xlg : 'auto',  md :'80px', sm : 'auto', xs : '120px'}
+}
 export const securedText = {
     
     fontFamily: "Helvetica",
