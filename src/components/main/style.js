@@ -16,7 +16,7 @@ export const tableHeadText = {
 export const tableNum = {
   opacity: 0.8,
   fontFamily: "Helvetica",
-  fontSize: { xlg: "22", xs: "15px" },
+  fontSize: { xlg: "22", xs: "14px" },
   fontWeight: "normal",
   fontStretch: "normal",
   fontStyle: "normal",
@@ -28,7 +28,7 @@ export const tableNum = {
 
 export const logoText = {
   fontFamily: "Helvetica",
-  fontSize: { xlg: "22", xs: "15px" },
+  fontSize: { xlg: "22", xs: "14px" },
   fontWeight: "normal",
   fontStretch: "normal",
   fontStyle: "normal",

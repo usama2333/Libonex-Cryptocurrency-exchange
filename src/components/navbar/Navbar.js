@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import { Typography, Stack } from "@mui/material";
+import { Typography, Stack, Link } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
@@ -71,11 +71,9 @@ const Navbar = () => {
                   sx={menubarDisplay}
                 >
                   <Stack spacing={1} sx={menubarBtn}>
-                    <Typography>Home</Typography>
-                    <Typography>Exchange</Typography>
-                    {/* <Typography sx={otherBtn}>Notifications</Typography>
-                <Typography sx={otherBtn}>Apply to list</Typography> */}
-                    <Typography>Contact us</Typography>
+                    <Link sx={{textDecoration : 'none'}}>Home</Link>
+                    <Link sx={{textDecoration : 'none'}}>Exchange</Link>
+                   <Link sx={{textDecoration : 'none'}}>Contact us</Link>
                     <Button>Sign in</Button>
                   </Stack>
                 </Menu>
@@ -93,8 +91,8 @@ const Navbar = () => {
               <Stack sx={libonexStack}>
                 <Box component="img" src={liboex} sx={libonexBox}></Box>
                 <Box sx={linksBox}></Box>
-                <Typography sx={homeBtn}>Home</Typography>
-                <Typography sx={otherBtn}>Exchange</Typography>
+                <Link sx={homeBtn}>Home</Link>
+                <Link sx={otherBtn}>Exchange</Link>
                 <Box
                   sx={notificationBox}
                 >
@@ -103,8 +101,8 @@ const Navbar = () => {
                     <KeyboardArrowDownIcon sx={arrowBtn} />
                   </Box>
                 </Box>
-                <Typography sx={otherBtn}>Apply to list</Typography>
-                <Typography sx={otherBtn}>Contact us</Typography>
+                <Link sx={otherBtn}>Apply to list</Link>
+                <Link sx={otherBtn}>Contact us</Link>
               </Stack>
               <Button sx={signinBtn}>Sign in</Button>
 

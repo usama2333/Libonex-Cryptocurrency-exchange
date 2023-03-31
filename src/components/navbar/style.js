@@ -11,6 +11,7 @@ export const homeBtn = {
   lineHeight: 1.27,
   letterSpacing: "0.66px",
   textAlign: "left",
+  textDecoration : 'none'
 };
 
 export const signinBtn = {
@@ -71,6 +72,7 @@ export const otherBtn = {
   letterSpacing: "0.66px",
   textAlign: "left",
   color: "#000",
+  textDecoration : 'none'
 };
 
 export const arrowBtn = {

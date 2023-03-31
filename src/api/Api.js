@@ -31,8 +31,8 @@ export default async function fetchcoinList(dispatch, tableActions, notify) {
     dispatch(tableActions.setError(error.message));
     dispatch(tableActions.notLoading());
     dispatch(tableActions.isShow());
-    
+    notify(error.message);
   }, 1000);
-  notify(error.message);
+  
   }
 }

@@ -1,7 +1,6 @@
 import { IconButton, Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import React, { Fragment, useEffect, useState } from "react";
-import backgroundMain from "../../assests/images/backgroundMain.png";
 import NotificationImg from "../../assests/images/NotificationImg.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -52,7 +51,7 @@ const Main = () => {
           direction={{ sm: "column", md: "row" }}
           justifyContent="space-between"
           alignItems="center"
-          sx={{ pt: { xs: "120px", sm: "140px", lg: "140px", xlg: "200px" } }}
+          sx={{ pt: { xs: "124px", sm: "145px", lg: "141px", xlg: "200px" } }}
         >
           <Box sx={textFlex}>
             <Typography sx={leadingText}>
