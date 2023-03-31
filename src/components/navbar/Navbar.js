@@ -9,12 +9,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import liboex from "../../assests/images/liboex.png";
-import {getStartedBtn,homeBtn,libonexCenter,otherBtn,signinBtn } from "./style";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {getStartedBtn,homeBtn,libonexCenter,otherBtn,signinBtn, arrowBtn } from "./style";
+
 
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -93,12 +97,13 @@ const Navbar = () => {
                       display: { xs: "flex", md: "none" },
                     }}
                   >
-                <Typography sx={homeBtn}>Home</Typography>
-                <Typography sx={otherBtn}>Exchange</Typography>
-                <Typography sx={otherBtn}>Notifications</Typography>
-                <Typography sx={otherBtn}>Apply to list</Typography>
-                <Typography sx={otherBtn}>Contact us</Typography>
-                <Button sx={signinBtn}>Sign in</Button>
+                <Typography >Home</Typography>
+                <Typography >Exchange</Typography>
+                {/* <Typography sx={otherBtn}>Notifications</Typography>
+                <Typography sx={otherBtn}>Apply to list</Typography> */}
+                <Typography>Contact us</Typography>
+                <Button >Sign in</Button>
+
                   </Stack>
                 </Menu>
               </Box>
@@ -144,14 +149,17 @@ const Navbar = () => {
                 </Box>
                 <Typography sx={homeBtn}>Home</Typography>
                 <Typography sx={otherBtn}>Exchange</Typography>
+                <Box sx={{display : 'flex' , flexDirection : 'row', justifyContent : 'center' , alignItems : 'center'}}>
                 <Typography sx={otherBtn}>Notifications</Typography>
+                <Box><KeyboardArrowDownIcon sx={arrowBtn}/></Box>
+                </Box>
                 <Typography sx={otherBtn}>Apply to list</Typography>
                 <Typography sx={otherBtn}>Contact us</Typography>
               
                 
               </Stack>
               <Button sx={signinBtn}>Sign in</Button>
-
+               
               <Box>
                 <Button
                   sx={{
@@ -159,7 +167,10 @@ const Navbar = () => {
                     boxShadow: "0 0 20px 0 rgba(0, 0, 0, 0.1)",
                     borderRadius: '5px',
                     backgroundColor : '#28a0b0',
-                    boxSizing : 'border-box'
+                    boxSizing : 'border-box',
+                    '&:hover': {
+                    backgroundColor: '#4ed7d0',
+                    },
                   }}
                 >
                   <Typography sx={getStartedBtn}>get started</Typography>

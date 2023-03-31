@@ -3,10 +3,8 @@ import { Container, Box, Stack } from "@mui/system";
 import React, { Fragment , useEffect, useState} from "react";
 import backgroundMain from "../../assests/images/backgroundMain.png";
 import NotificationImg from "../../assests/images/NotificationImg.png";
-import eth from "../../assests/images/eth.png";
-import btc from "../../assests/images/btc.png";
-import dash from "../../assests/images/dash.png";
-import ltc from "../../assests/images/ltc.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -17,7 +15,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import fetchcoinList from "../../api/Api";
 import { logoText, negativeTableData, positiveTableData, tableHeadText, tableNum } from "./style";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { tableActions } from "../../store/table";
+import Alert from '@mui/material/Alert';
+import notFound from '../../assests/images/notFound.jpg';
 
 const TableHeaderData = [
   "Rank",
@@ -28,15 +29,25 @@ const TableHeaderData = [
   "Start Date",
   "Final Date",
 ];
+
+const notify = (error) => toast(error);
+
 const Main = () => {
   
-  const [data , setData] = useState([]);
-  const [error , setError] = useState();
+  const dispatch = useDispatch();
+  const data = useSelector(state => state.table.data);
+  const error = useSelector(state => state.table.error);
+  const show = useSelector(state => state.table.show);
+  const loading = useSelector(state => state.table.loading);
+ 
   useEffect(() => {
-    fetchcoinList(setData,setError);
+    fetchcoinList(dispatch , tableActions, notify);
   }, []);
 
-  console.log('This is component data' , data)
+  console.log('error message through redux',error);
+  console.log('This is component data through redux' , data);
+  console.log('Show data through redux' , show);
+  console.log('Loading data through redux' , loading);
 
   return (
     <Fragment>
@@ -225,6 +236,17 @@ const Main = () => {
               </TableHead>
               <TableBody>
 
+
+              {/* {data && !show ? (
+                  <Typography>Data is found</Typography>
+              ) : (
+                  <Typography>
+                    Data is not found
+                  </Typography>
+              )} */}
+              {!error && !show &&
+              <>
+
                {data.map((data) => (
 
               
@@ -270,134 +292,36 @@ const Main = () => {
                 </TableRow>
                 ))}
 
-                 {/* 
-                <TableRow>
-                  <TableCell sx={tableNum} component="th" scope="row">
-                    2
-                  </TableCell>
-                  <TableCell align="left" sx={{ pr: "100px" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={dash}
-                        sx={{
-                          width: { xlg: "42px", xs: "32px" },
-                          height: { xlg: "42px", xs: "32px" },
-                          mr: "10px",
-                        }}
-                      ></Box>
-                      <Typography sx={logoText}>DASH/BTC</Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    0.010022
-                  </TableCell>
-                  <TableCell sx={negativeTableData} align="left">
-                    -0.421
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    0.009929
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    0.010199
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    27947.873
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell sx={tableNum} component="th" scope="row">
-                    3
-                  </TableCell>
-                  <TableCell align="left" sx={{ pr: "100px" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={ltc}
-                        sx={{
-                          width: { xlg: "42px", xs: "32px" },
-                          height: { xlg: "42px", xs: "32px" },
-                          mr: "10px",
-                        }}
-                      ></Box>
-                      <Typography sx={logoText}>LTC/BTC</Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  0.005982
-                  </TableCell>
-                  <TableCell sx={positiveTableData} align="left">
-                    1.115
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  0.005852
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  0.006011
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  100472.42
-                  </TableCell>
-                </TableRow>
-
-                <TableRow>
-                  <TableCell sx={tableNum} component="th" scope="row">
-                    4
-                  </TableCell>
-                  <TableCell align="left" sx={{ pr: "100px" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={btc}
-                        sx={{
-                          width: { xlg: "42px", xs: "32px" },
-                          height: { xlg: "42px", xs: "32px" },
-                          mr: "10px",
-                        }}
-                      ></Box>
-                      <Typography sx={logoText}>PRO6/BTC</Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                    0.02097
-                  </TableCell>
-                  <TableCell sx={positiveTableData} align="left">
-                    1.051
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  0.09929
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  0.010199
-                  </TableCell>
-                  <TableCell sx={tableNum} align="left">
-                  229107.39
-                  </TableCell>
-                </TableRow> */}
+                </>
+              }
               </TableBody>
             </Table>
           </TableContainer>
         </Box>
+
+        {error && show && ( 
+          <Box
+           sx={{
+            display : 'flex' , justifyContent : 'center' , alignItems : 'center',
+            flexDirection : {xs :'column' , md :'row'},
+            pt : {xs : '60px' , sm  : '40px', md : '0px' , lg : '70px'}
+           }}
+          >
+        <Box
+         component='img'
+         src = {notFound}
+         sx={{width : '250px' , height : '250px' , display : 'inline-block', borderRadius : '100%'}}
+        >
+        </Box>
+        
+        <Alert sx={{display : {xs : 'none' , md : 'flex'}}}  severity="info">
+        {error}
+       </Alert>
+        </Box> )}
+
+        
       </Container>
+      <ToastContainer />
     </Fragment>
   );
 };

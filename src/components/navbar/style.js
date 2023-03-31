@@ -30,7 +30,8 @@
     textAlign: "left",
     mr : {xlg : '50px' , lg : '40px' , md :'30px'},
     ml : {xl :'320px' , xlg : '300px' , lg : '160px'},
-    display : {xs : 'none' , md : 'flex'}
+    display : {xs : 'none' , md : 'flex'},
+    
   };
   
   export const getStartedBtn = {
@@ -75,6 +76,24 @@
     letterSpacing: "0.66px",
     textAlign: "left",
     color: "#000",
+  };
+  
+  export const arrowBtn = {
+    // height: "22px",
+    opacity : 0.7,
+    // fontFamily: "Helvetica",
+    // fontSize: {xlg : '22px' , lg : '16px' , md : '15px'},
+    // fontWeight: 'normal',
+    // fontStretch: "normal",
+    // fontStyle: "normal",
+    
+    // letterSpacing: "0.66px",
+    // textAlign: "left",
+    color: "#000",
+    width : '25px',
+    height : '25px',
+    ml : '5px',
+    
   };
   
   
