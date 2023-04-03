@@ -30,6 +30,7 @@ const notify = (error) => toast(error);
 const Main = () => {
 
   const [activeState, seteactiveState] = useState(1);
+  console.log('This is active state' , activeState);
 
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
@@ -64,9 +65,20 @@ const Main = () => {
           >
             <Box component="img" src={NotificationImg} sx={imgFlex}></Box>
             <Box sx={absoluteBox}>
-              <Typography sx={digitalCurrency}>
+            { activeState === 0 && <Typography sx={digitalCurrency}>
+                50% off on all digital currency.
+              </Typography>}
+            { activeState === 1 && <Typography sx={digitalCurrency}>
                 Buy, sell and trade digital currency.
-              </Typography>
+              </Typography>}
+             {activeState === 2 && <Typography sx={digitalCurrency}>
+             40% off on Linoex currency.
+              </Typography> }
+
+              {activeState === 3 && <Typography sx={digitalCurrency}>
+             35% off on V2F currency exchange.
+              </Typography> }
+
               <Box sx={flexBox}>
                 <Typography sx={learnMore}>Learn more</Typography>
                 <Typography
