@@ -1,10 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment , useEffect, useState} from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import viewsbackground from "../../assests/images/viewsbackground.png";
 import { viewCon, viewsLowerText, viewStackSx, viewsUpperText } from "./style";
 
 const Views = () => {
+  const [count, setCount] = useState(1);
+ 
+  useEffect(() => {
+    if (count < 130) {
+      const timerId = setTimeout(() => {
+        setCount(count + 1);
+      }, 10); 
+      
+      return () => {
+        clearTimeout(timerId);
+      };
+    }
+
+  }, [count]);
+
   return (
     <Fragment>
       <Container maxWidth="custom" sx={viewCon}>
@@ -16,7 +31,7 @@ const Views = () => {
             sx={viewStackSx}
           >
             <Box>
-              <Typography sx={viewsUpperText}>$130M+</Typography>
+              <Typography sx={viewsUpperText}>{`$${count}M+`}</Typography>
 
               <Typography sx={viewsLowerText}>
                 Cryptocurrency exchanged

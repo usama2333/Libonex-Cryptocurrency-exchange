@@ -1,4 +1,4 @@
-import { IconButton, Typography } from "@mui/material";
+import { IconButton, Typography, Button } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import React, { Fragment, useEffect, useState } from "react";
 import NotificationImg from "../../assests/images/NotificationImg.png";
@@ -13,27 +13,24 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import fetchcoinList from "../../api/Api";
-import { absoluteBox,dashBox,dashFlexBox,dashWhiteBox,digitalCurrency,errorBox,flexBox, imgFlex,
-  leadingText,learnMore,logoText,mainCon,negativeTableData,notFoundImg,positiveTableData,
-  tableCellFlex,tableCellImg,tableCon,tableHeadText,tableNum,textFlex,} from "./style";
+import {absoluteBox,dashBox,dashFlexBox,dashWhiteBox, digitalCurrency, errorBox,flexBox,
+  forwardIconSx,
+  imgFlex,leadingText,learnMore,logoText, mainCon,mainConStack,negativeTableData,notFoundImg,
+  positiveTableData,tableCellFlex,tableCellImg,tableCon,tableConBox,tableHeadText,tableNum,
+  textFlex,} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import Alert from "@mui/material/Alert";
 import notFound from "../../assests/images/notFound.jpg";
+import { TableHeaderData } from "./style";
 
-const TableHeaderData = [
-  "Rank",
-  "Name",
-  "Price",
-  "Total Supply",
-  "Remaning Supply",
-  "Start Date",
-  "Final Date",
-];
 
 const notify = (error) => toast(error);
 
 const Main = () => {
+
+  const [activeState, seteactiveState] = useState(1);
+
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
   const error = useSelector((state) => state.table.error);
@@ -44,6 +41,7 @@ const Main = () => {
     fetchcoinList(dispatch, tableActions, notify);
   }, []);
 
+
   return (
     <Fragment>
       <Container maxWidth="custom" sx={mainCon}>
@@ -51,7 +49,7 @@ const Main = () => {
           direction={{ sm: "column", md: "row" }}
           justifyContent="space-between"
           alignItems="center"
-          sx={{ pt: { xs: "124px", sm: "145px", lg: "141px", xlg: "200px" } }}
+          sx={mainConStack}
         >
           <Box sx={textFlex}>
             <Typography sx={leadingText}>
@@ -77,20 +75,24 @@ const Main = () => {
                   }}
                 >
                   <ArrowForwardIosIcon
-                    sx={{ width: "27px", height: "17.9px", mt: "7px" }}
+                    sx={forwardIconSx}
                   />
                 </Typography>
               </Box>
             </Box>
             <Box sx={dashFlexBox}>
-              <Box sx={dashBox}></Box>
-              <Box sx={dashWhiteBox}></Box>
-              <Box sx={dashBox}></Box>
-              <Box sx={dashBox}></Box>
+              {[0, 1, 2, 3].map((item) => {
+                return (
+                  <Box
+                    onClick={() => seteactiveState(item)}
+                    sx={item == activeState ? dashWhiteBox : dashBox}
+                  ></Box>
+                );
+              })}
             </Box>
           </Box>
         </Stack>
-        <Box sx={{ mt: "80px", ml: "30px", mr: "30px", position: "relative" }}>
+        <Box sx={tableConBox}>
           <TableContainer component={Paper} sx={tableCon}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>

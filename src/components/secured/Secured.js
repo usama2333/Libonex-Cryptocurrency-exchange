@@ -12,11 +12,7 @@ const Secured = () => {
     <Fragment>
       <Container
         maxWidth="custom"
-        sx={{
-          // backgroundColor : '#fff',
-          pt: "150px",
-        }}
-      >
+        sx={{pt: "150px", }}>
         <Box sx={securedTextBox}>
           <Typography sx={securedText}>
             Most trusted and secured platform
@@ -34,11 +30,7 @@ const Secured = () => {
         >
           <Box textAlign="center">
             <Box component="img" src={Icon1} sx={securedIcon1}></Box>
-            <Box
-              sx={{
-                width: "70%",
-              }}
-            >
+            <Box sx={{width: "70%",}}>
               <Typography sx={iconText}>
                 Customize your own trading panel
               </Typography>
@@ -47,11 +39,7 @@ const Secured = () => {
 
           <Box textAlign="center">
             <Box component="img" src={Icon2} sx={securedIcon2}></Box>
-            <Box
-              sx={{
-                width: "70%",
-              }}
-            >
+            <Box sx={{width: "70%",}}>
               <Typography sx={iconText}>
                 Fully connected and secure with Multi-2FA
               </Typography>
@@ -60,11 +48,7 @@ const Secured = () => {
 
           <Box textAlign="center">
             <Box component="img" src={Icon3} sx={securedIcon3}></Box>
-            <Box
-              sx={{
-                width: "70%",
-              }}
-            >
+            <Box sx={{width: "70%",}}>
               <Typography sx={iconText}>
                 Fully Secured With 6 Levels Account Security
               </Typography>

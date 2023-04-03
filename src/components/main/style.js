@@ -1,5 +1,29 @@
 import backgroundMain from "../../assests/images/backgroundMain.png";
 
+export const TableHeaderData = [
+  "Rank",
+  "Name",
+  "Price",
+  "Total Supply",
+  "Remaning Supply",
+  "Start Date",
+  "Final Date",
+];
+export const mainConStack = {
+  pt: { xs: "124px", sm: "145px", lg: "141px", xlg: "200px" },
+};
+
+export const forwardIconSx = {
+  width: "27px",
+  height: "17.9px",
+  mt: "7px",
+};
+export const tableConBox = {
+  mt: "80px",
+  ml: "30px",
+  mr: "30px",
+  position: "relative",
+};
 export const tableHeadText = {
   opacity: 0.7,
   fontFamily: "Helvetica",

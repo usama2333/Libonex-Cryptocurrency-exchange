@@ -6,6 +6,7 @@ const initialState = {
     error : null,
     loading : false,
     show : false,
+    log : false,
 }
 
 const tableSlice = createSlice ({
@@ -30,6 +31,9 @@ const tableSlice = createSlice ({
         notShow (state,action) {
             state.show = false;
         },
+        setLog(state)  {
+            state.log = !state.log;
+        }
         
     }
 })

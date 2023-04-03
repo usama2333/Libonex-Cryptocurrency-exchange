@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,30 +9,49 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import liboex from "../../assests/images/liboex.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {getStartedBtn, homeBtn,libonexCenter,otherBtn,signinBtn,arrowBtn,getStartedBox,linksBox,
-  libonexBox,libonexStack,menubarDisplay, menubarBtn,navbarCon,notificationBox} from "./style";
+  libonexBox,libonexStack,menubarDisplay, menubarBtn,navbarCon,notificationBox, notificationList} from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
+const notify = (error) => toast('Sign in Successfully');
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const dispatch = useDispatch();
+  const log = useSelector((state) => state.table.log);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+  
+const signInHandler = () => {
+  dispatch(tableActions.setLog());
+  notify();
+  setTimeout(() => {
+    dispatch(tableActions.setLog());
+  }, 10000); 
+}
   return (
+  
+  
     <Fragment>
       <Container maxWidth="custom" sx={{ position: "relative" }}>
         <AppBar
@@ -71,9 +90,9 @@ const Navbar = () => {
                   sx={menubarDisplay}
                 >
                   <Stack spacing={1} sx={menubarBtn}>
-                    <Link sx={{textDecoration : 'none'}}>Home</Link>
-                    <Link sx={{textDecoration : 'none'}}>Exchange</Link>
-                   <Link sx={{textDecoration : 'none'}}>Contact us</Link>
+                    <Link sx={{textDecoration : 'none', px : '5px'}}>Home</Link>
+                    <Link sx={{textDecoration : 'none', px : '5px'}}>Exchange</Link>
+                   <Link sx={{textDecoration : 'none'  , px : '5px'}}>Contact us</Link>
                     <Button>Sign in</Button>
                   </Stack>
                 </Menu>
@@ -98,14 +117,19 @@ const Navbar = () => {
                 >
                   <Typography sx={otherBtn}>Notifications</Typography>
                   <Box>
-                    <KeyboardArrowDownIcon sx={arrowBtn} />
+                    <KeyboardArrowDownIcon onClick={handleClick} sx={arrowBtn} />
+                    <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+                    <Typography sx={notificationList} onClick={handleClose}>Libonex</Typography>
+                    <Typography sx={notificationList} onClick={handleClose}>50% off</Typography>
+                    <Typography sx={notificationList} onClick={handleClose}>Currency</Typography>
+                    </Menu>
                   </Box>
                 </Box>
                 <Link sx={otherBtn}>Apply to list</Link>
                 <Link sx={otherBtn}>Contact us</Link>
               </Stack>
-              <Button sx={signinBtn}>Sign in</Button>
-
+              {!log && <Button onClick={signInHandler} sx={signinBtn}>Sign in</Button>}
+              {log && <Button disabled onClick={signInHandler} sx={signinBtn}>Sign in</Button>}
               <Box>
                 <Button sx={getStartedBox}>
                   <Typography sx={getStartedBtn}>get started</Typography>
@@ -115,6 +139,7 @@ const Navbar = () => {
           </Container>
         </AppBar>
       </Container>
+
     </Fragment>
   );
 };
