@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {getStartedBtn, homeBtn,libonexCenter,otherBtn,signinBtn,arrowBtn,getStartedBox,linksBox,
-  libonexBox,libonexStack,menubarDisplay, menubarBtn,navbarCon,notificationBox, notificationList} from "./style";
+  libonexBox,libonexStack,menubarDisplay, menubarBtn,navbarCon,notificationBox, notificationList, navAppbar, iconButtonBox, menuIconBox, menuBarLinks, navButtonsRow} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 const notify = (error) => toast('Sign in Successfully');
@@ -56,13 +56,13 @@ const signInHandler = () => {
       <Container maxWidth="custom" sx={{ position: "relative" }}>
         <AppBar
           position="absolute"
-          sx={{ backgroundColor: "transparent", boxShadow: "none" }}
+          sx={navAppbar}
         >
           <Container maxWidth="custom" sx={navbarCon}>
             <Toolbar disableGutters>
               <Box></Box>
 
-              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <Box sx={iconButtonBox}>
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -71,7 +71,7 @@ const signInHandler = () => {
                   onClick={handleOpenNavMenu}
                   color="black"
                 >
-                  <MenuIcon sx={{ width: "50px", height: "50px" }} />
+                  <MenuIcon sx={menuIconBox} />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -90,20 +90,15 @@ const signInHandler = () => {
                   sx={menubarDisplay}
                 >
                   <Stack spacing={1} sx={menubarBtn}>
-                    <Link sx={{textDecoration : 'none', px : '5px'}}>Home</Link>
-                    <Link sx={{textDecoration : 'none', px : '5px'}}>Exchange</Link>
-                   <Link sx={{textDecoration : 'none'  , px : '5px'}}>Contact us</Link>
+                    <Link sx={menuBarLinks}>Home</Link>
+                    <Link sx={menuBarLinks}>Exchange</Link>
+                   <Link sx={menuBarLinks}>Contact us</Link>
                     <Button>Sign in</Button>
                   </Stack>
                 </Menu>
               </Box>
 
-              <Box
-                sx={{
-                  flexGrow: { md: 0, sm: 1, xs: 1 },
-                  // display : {xs : 'flex' , md : 'none'}
-                }}
-              >
+              <Box sx={navButtonsRow}>
                 <Box component="img" src={liboex} sx={libonexCenter}></Box>
               </Box>
 

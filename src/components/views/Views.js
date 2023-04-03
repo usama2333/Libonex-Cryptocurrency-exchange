@@ -32,7 +32,6 @@ const Views = () => {
           >
             <Box>
               <Typography sx={viewsUpperText}>{`$${count}M+`}</Typography>
-
               <Typography sx={viewsLowerText}>
                 Cryptocurrency exchanged
               </Typography>
@@ -40,13 +39,11 @@ const Views = () => {
 
             <Box>
               <Typography sx={viewsUpperText}>38</Typography>
-
               <Typography sx={viewsLowerText}>Countries supported</Typography>
             </Box>
 
             <Box>
               <Typography sx={viewsUpperText}>2M+</Typography>
-
               <Typography sx={viewsLowerText}>Customers served</Typography>
             </Box>
           </Stack>

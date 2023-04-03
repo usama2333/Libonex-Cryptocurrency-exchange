@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
-import { securedText, reasonsText, iconText } from "./style";
+import { securedText, reasonsText, iconText, appsMainCon } from "./style";
 import android from "../../assests/images/android.png";
 import web from "../../assests/images/web.png";
 import apple from "../../assests/images/apple.png";
@@ -12,9 +12,7 @@ const Apps = () => {
     <Fragment>
       <Container
         maxWidth="custom"
-        sx={{
-          pt: { xs: "80px", sm: "100px" },
-        }}
+        sx={appsMainCon}
       >
         <Box sx={textBox}>
           <Typography sx={securedText}>Get easy access through apps</Typography>

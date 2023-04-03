@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
-import boxesbackground from "../../assests/images/boxesbackground.png";
 import boxes from "../../assests/images/boxes.png";
-import {aboutContainer,aboutPara,aboutText,boxImgSx,textBox} from "./style";
+import {aboutContainer,aboutPara,aboutText,boxImgSx,boxesImgParent,textBox} from "./style";
 
 const About = () => {
   return (
@@ -31,11 +30,7 @@ const About = () => {
             </Typography>
           </Box>
 
-          <Box
-            sx={{
-              position: "relative",
-            }}
-          >
+          <Box sx={boxesImgParent}>
             <Box component="img" src={boxes} sx={boxImgSx}></Box>
           </Box>
         </Stack>

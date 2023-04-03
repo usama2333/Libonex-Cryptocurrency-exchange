@@ -30,3 +30,7 @@ export const iconSx = {
     mr : '30px', width : '20px ' , height : '20px'
 }
 
+export const facebookSx = {
+    width: "20px ", height: "20px" 
+}
+

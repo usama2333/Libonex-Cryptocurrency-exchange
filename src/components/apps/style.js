@@ -13,6 +13,10 @@ export const securedText = {
     mb : '15px'
 }
 
+export const appsMainCon = {
+    pt: { xs: "80px", sm: "100px" },
+}
+
 export const reasonsText = {
     opacity :0.8,
     fontFamily: "Helvetica",

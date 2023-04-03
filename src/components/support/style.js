@@ -64,3 +64,12 @@ export const bottomLine = {
     border: "1px solid #000",
     mt: { xlg: "30px", md: "0px", xs : '25px' },
 }
+
+export const supportInnerBox = {
+  mb: "20px",
+  ml: { xs: "-70px", sm: "0px" },
+}
+
+export const supportMargin = {
+  mb: "20px",
+}

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import liboex from "../../assests/images/liboex.png";
-import { addressText,bottomLine,supportBox,supportFlex,supportLibonex,SupportStack,
+import { addressText,bottomLine,supportBox,supportFlex,supportInnerBox,supportLibonex,supportMargin,SupportStack,
   termsText,upperLine,} from "./style";
 
 const Support = () => {
@@ -25,38 +25,22 @@ const Support = () => {
               </Typography>
             </Box>
             <Box sx={supportFlex}>
-              <Box
-                sx={{
-                  mb: "20px",
-                  ml: { xs: "-70px", sm: "0px" },
-                }}
-              >
+              <Box sx={supportInnerBox}>
                 <Typography sx={termsText}>Trading</Typography>
-
                 <Typography sx={termsText}>FAQ's</Typography>
-
                 <Typography sx={termsText}>Terms</Typography>
-
                 <Typography sx={termsText}>Privacy</Typography>
               </Box>
 
-              <Box
-               sx={{mb: "20px",}}
-              >
+              <Box sx={supportMargin}>
                 <Typography sx={termsText}>Notifications</Typography>
-
                 <Typography sx={termsText}>Apply for Listing</Typography>
-
                 <Typography sx={termsText}>Fees</Typography>
               </Box>
 
-              <Box
-                sx={{mb: "20px",}}
-              >
+              <Box sx={supportMargin}>
                 <Typography sx={termsText}>Help Support</Typography>
-
                 <Typography sx={termsText}>Downloads</Typography>
-
                 <Typography sx={termsText}>Contact Us</Typography>
                 <Typography sx={termsText}>Submit Request</Typography>
               </Box>

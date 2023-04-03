@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
 import {securedText,reasonsText,iconText,securedTextBox,securedStack,securedIcon1,
-  securedIcon2,securedIcon3,} from "./style";
+  securedIcon2,securedIcon3, iconBoxWidth, securedStackDiaplay, securedConSx,} from "./style";
 import Icon1 from "../../assests/images/Icon1.png";
 import Icon2 from "../../assests/images/Icon2.png";
 import Icon3 from "../../assests/images/Icon3.png";
@@ -12,7 +12,7 @@ const Secured = () => {
     <Fragment>
       <Container
         maxWidth="custom"
-        sx={{pt: "150px", }}>
+        sx={securedConSx}>
         <Box sx={securedTextBox}>
           <Typography sx={securedText}>
             Most trusted and secured platform
@@ -23,14 +23,14 @@ const Secured = () => {
         </Box>
 
         <Stack
-          direction={{ md: "row", xs: "column" }}
+          direction={securedStackDiaplay}
           justifyContent="space-around"
           alignItems="center"
           sx={securedStack}
         >
           <Box textAlign="center">
             <Box component="img" src={Icon1} sx={securedIcon1}></Box>
-            <Box sx={{width: "70%",}}>
+            <Box sx={iconBoxWidth}>
               <Typography sx={iconText}>
                 Customize your own trading panel
               </Typography>
@@ -39,7 +39,7 @@ const Secured = () => {
 
           <Box textAlign="center">
             <Box component="img" src={Icon2} sx={securedIcon2}></Box>
-            <Box sx={{width: "70%",}}>
+            <Box sx={iconBoxWidth}>
               <Typography sx={iconText}>
                 Fully connected and secure with Multi-2FA
               </Typography>
@@ -48,7 +48,7 @@ const Secured = () => {
 
           <Box textAlign="center">
             <Box component="img" src={Icon3} sx={securedIcon3}></Box>
-            <Box sx={{width: "70%",}}>
+            <Box sx={iconBoxWidth}>
               <Typography sx={iconText}>
                 Fully Secured With 6 Levels Account Security
               </Typography>

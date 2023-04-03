@@ -13,10 +13,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import fetchcoinList from "../../api/Api";
-import {absoluteBox,dashBox,dashFlexBox,dashWhiteBox, digitalCurrency, errorBox,flexBox,
+import {absoluteBox,alertSx,dashBox,dashFlexBox,dashWhiteBox, digitalCurrency, errorBox,flexBox,
   forwardIconSx,
-  imgFlex,leadingText,learnMore,logoText, mainCon,mainConStack,negativeTableData,notFoundImg,
-  positiveTableData,tableCellFlex,tableCellImg,tableCon,tableConBox,tableHeadText,tableNum,
+  imgFlex,leadingText,learnMore,learnMoreColor,logoText, mainCon,mainConStack,negativeTableData,notFoundImg,
+  positiveTableData,sliderPosition,tableCellFlex,tableCellImg,tableCon,tableConBox,tableHeadText,tableNum,
   textFlex,} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
@@ -24,24 +24,19 @@ import Alert from "@mui/material/Alert";
 import notFound from "../../assests/images/notFound.jpg";
 import { TableHeaderData } from "./style";
 
-
 const notify = (error) => toast(error);
 
 const Main = () => {
 
   const [activeState, seteactiveState] = useState(1);
-  console.log('This is active state' , activeState);
-
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
   const error = useSelector((state) => state.table.error);
   const show = useSelector((state) => state.table.show);
-  const loading = useSelector((state) => state.table.loading);
 
   useEffect(() => {
     fetchcoinList(dispatch, tableActions, notify);
   }, []);
-
 
   return (
     <Fragment>
@@ -58,11 +53,7 @@ const Main = () => {
             </Typography>
           </Box>
 
-          <Box
-            sx={{
-              position: "relative",
-            }}
-          >
+          <Box sx={sliderPosition}>
             <Box component="img" src={NotificationImg} sx={imgFlex}></Box>
             <Box sx={absoluteBox}>
             { activeState === 0 && <Typography sx={digitalCurrency}>
@@ -82,9 +73,7 @@ const Main = () => {
               <Box sx={flexBox}>
                 <Typography sx={learnMore}>Learn more</Typography>
                 <Typography
-                  sx={{
-                    color: "#28a0b0",
-                  }}
+                  sx={learnMoreColor}
                 >
                   <ArrowForwardIosIcon
                     sx={forwardIconSx}
@@ -161,7 +150,7 @@ const Main = () => {
             <Box component="img" src={notFound} sx={notFoundImg}></Box>
 
             <Alert
-              sx={{ display: { xs: "none", md: "flex" } }}
+              sx={alertSx}
               severity="error"
             >
               {error}

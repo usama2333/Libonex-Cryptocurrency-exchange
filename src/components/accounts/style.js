@@ -16,6 +16,11 @@ export const accountSx = {
     width : {xlg : 'auto',  md :'80px', sm : 'auto' , xs : '120px'},
     height : {xlg : 'auto',  md :'80px', sm : 'auto', xs : '120px'}
 }
+
+export const accountsMainCon = {
+    pt: { xs: "80px", sm: "100px" },
+}
+
 export const securedText = {
     
     fontFamily: "Helvetica",

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Typography } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
-import {securedText,reasonsText,iconText,textBox,stackSx,accountSx,} from "./style";
+import {securedText,reasonsText,iconText,textBox,stackSx,accountSx, accountsMainCon,} from "./style";
 import account from "../../assests/images/account.png";
 import bank from "../../assests/images/bank.png";
 import buying from "../../assests/images/buying.png";
@@ -11,9 +11,7 @@ const Accounts = () => {
     <Fragment>
       <Container
         maxWidth="custom"
-        sx={{
-          pt: { xs: "80px", sm: "100px" },
-        }}
+        sx={accountsMainCon}
       >
         <Box sx={textBox}>
           <Typography sx={securedText}>How to get started?</Typography>

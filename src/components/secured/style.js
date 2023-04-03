@@ -12,6 +12,10 @@ export const securedText = {
     mb : '15px'
 }
 
+export const securedConSx = {
+    pt: "150px", 
+}
+
 export const reasonsText = {
     opacity :0.8,
     fontFamily: "Helvetica",
@@ -73,4 +77,12 @@ export const securedIcon3 = {
     ml : {sm : '-120px' , lg : '-160px' , xs :'-80px'},
    width : {xlg : 'auto',  md :'80px', sm : 'auto' , xs : '120px'},
     height : {xlg : 'auto',  md :'80px', sm : 'auto', xs : '120px'}
+}
+
+export const iconBoxWidth = {
+    width: "70%"
+}
+
+export const securedStackDiaplay = {
+    md: "row", xs: "column" ,
 }

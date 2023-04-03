@@ -1,3 +1,23 @@
+export const navAppbar = {
+  backgroundColor: "transparent", boxShadow: "none"
+}
+
+export const iconButtonBox = {
+  flexGrow: 1, display: { xs: "flex", md: "none" },
+}
+
+export const menuIconBox = {
+  width: "50px", height: "50px",
+}
+
+export const menuBarLinks = {
+  textDecoration : 'none', px : '5px'
+}
+
+export const navButtonsRow = {
+  flexGrow: { md: 0, sm: 1, xs: 1 },
+}
+
 export const homeBtn = {
   // height: "20px",
   color: "#000",

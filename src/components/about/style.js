@@ -21,6 +21,9 @@ export const boxImgSx = {
    mt :{sm : '80px' , md : '0px'},
 }
 
+export const boxesImgParent = {
+    position: "relative",
+}
 export const aboutText = {
     
     fontFamily: "Helvetica",

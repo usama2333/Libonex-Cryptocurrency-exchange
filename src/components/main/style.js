@@ -215,3 +215,15 @@ export const notFoundImg = {
   display: "inline-block",
   borderRadius: "100%",
 };
+
+export const learnMoreColor = {
+  color: "#28a0b0",
+}
+
+export const sliderPosition = {
+  position: "relative",
+}
+
+export const alertSx = {
+  display: { xs: "none", md: "flex" } 
+}
