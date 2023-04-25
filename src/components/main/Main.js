@@ -109,7 +109,13 @@ const Main = () => {
                     {data.map((data) => (
                       <TableRow>
                         <TableCell sx={tableNum} component="th" scope="row">
-                          {data.rank}
+                        {/* <Box
+                          component="img"
+                          src={data.rank}
+                          // src={neil}
+                          
+                        ></Box> */}
+                      {data.rank}
                         </TableCell>
                         <TableCell align="left" sx={{ pr: "100px" }}>
                           <Box sx={tableCellFlex}>
